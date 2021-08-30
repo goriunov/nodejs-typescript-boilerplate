@@ -1,0 +1,46 @@
+{
+  "name": "nodejs-typescript-boilerplate",
+  "version": "1.0.0",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "start": "node -r dotenv/config ./dist/src/main.js",
+    "build": "npm run clean && npm run lint && tsc",
+    "clean": "rimraf ./dist",
+    "test": "jest",
+    "lint": "eslint --ext .ts ./src ./test"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.4",
+    "typescript": "^4.3.5"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/test/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "silent": true,
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "testEnvironment": "node"
+  }
+}
